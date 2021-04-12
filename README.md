@@ -1,9 +1,4 @@
 Okyanus
-Team Members:
-Yuval Yaakobi
-Roni Elbaz
-Gal Greenberg
-
 Project Files:
 README.md
 API.py - Site Functionality API from query to result
