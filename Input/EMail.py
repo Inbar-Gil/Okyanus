@@ -7,6 +7,7 @@ if __name__ == "__main__":
     emails = re.findall(r'[a-zA-Z0-9._-]+@[\w.-]+\.com', paragraph)
 
     print(emails)
+    print (len(emails))
 
     with open("C:/Users/t8747382/Desktop/Okyanus/Okyanus/Tests/tests.txt", 'r') as f:
         queries = f.readlines()[:-1]
