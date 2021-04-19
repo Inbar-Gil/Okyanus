@@ -1,6 +1,6 @@
 import re
 
-def Email_Check (paragraph):
+def Email_Check_Bool (paragraph):
     emails = re.findall(r'([a-zA-Z0-9._-]+@[\w.-]+)', paragraph)
     if (len(emails)>0):
         for q in emails:
@@ -19,11 +19,32 @@ def Email_Check (paragraph):
         return False
     return False
 
+def Email_Check_List (paragraph):
+    valid_email_list = []
+    emails = re.findall(r'([a-zA-Z0-9._-]+@[\w.-]+)', paragraph)
+    print(emails)
+    if (len(emails)>0):
+        for q in emails:
+            valid = True
+            if (q.count("@") == 1):
+                Shtrudel = q.find("@")
+                prefix = q[0:Shtrudel]
+                count = 0
+                for char in prefix:
+                    if char == "." or char == "_" or char == "-":
+                        count+=1
+                    else:
+                        count = 0
+                    if count == 2:
+                        valid = False
+            if valid:
+                valid_email_list.append(q)
+    return valid_email_list
 
 def Email_Piruk(paragraph):
     lister = []
-    print(paragraph)
-    for email in paragraph:
+    email_list = re.findall(r'([a-zA-Z0-9._-]+@[\w.-]+)', paragraph)
+    for email in Email_Check_List(paragraph):
         Shtrudel = email.find("@")
         period = email.find(".")
         prefix = email[0:Shtrudel]
@@ -36,10 +57,11 @@ def Email_Piruk(paragraph):
 
 
 text = input("Enter paragraph:")
-email_list = re.findall(r'([a-zA-Z0-9._-]+@[\w.-]+)', text)
-print (Email_Check(text))
-Email_Piruk(email_list)
-
+print (Email_Check_Bool(text))
+print ("")
+print(Email_Check_List(text))
+print("")
+Email_Piruk(text)
 
 
 
