@@ -6,6 +6,10 @@ import re
 
 
 def isQueryPhoneNumber(query):
+    #Remove white characters
+    pattern = re.compile(r'\s+')
+    query = re.sub(pattern, '', query)
+
     phoneIntl = re.match(r'\+\d{3}-?\d{9}', query, re.IGNORECASE)
     phoneMobileOrHome = re.match(r'\d{3}-?\d{3}-?\d{4}', query, re.IGNORECASE)
 
@@ -13,7 +17,5 @@ def isQueryPhoneNumber(query):
 
 
 def isMatchPhoneNumber(query, finalSerachPhoneNumber):
-    if finalSerachPhoneNumber == None or finalSerachPhoneNumber.group(0) != query:
-        return False
-    return True
+    return finalSerachPhoneNumber != None and finalSerachPhoneNumber.group(0) == query
 
