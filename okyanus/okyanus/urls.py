@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.http import JsonResponse
 from django.urls import path
+from Main import main
 
 
 def search(http_request):
-    http_request.GET['query']
-    return JsonResponse({"a": "b"})
+    query = http_request.GET['q']
+    jsonResponse = main(query)
+    return JsonResponse(jsonResponse)
 
 
 urlpatterns = [
