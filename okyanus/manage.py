@@ -6,8 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    sys.path.insert(1, 'C:/Users/t8747382/Desktop/Okyanus/Okyanus')
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'okyanus.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'okyanus.okyanus.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
