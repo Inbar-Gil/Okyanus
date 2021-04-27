@@ -4,10 +4,11 @@ Contains the functions for analyzing phone numbers
 
 import re
 
-PHONE_NUMBER_TYPE = {1 : "Intl", 2 : "Mobl", 3 : "Home"}
+PHONE_NUMBER_TYPE = {1: "Intl", 2: "Mobl", 3: "Home"}
+
 
 def isQueryPhoneNumber(query):
-    #Remove white characters
+    # Remove white characters
     pattern = re.compile(r'\s+')
     query = re.sub(pattern, '', query)
 
@@ -15,11 +16,19 @@ def isQueryPhoneNumber(query):
     phoneMobileOrHome = re.match(r'\d{3}-?\d{3}-?\d{4}', query, re.IGNORECASE)
     oldPhoneHomeNumber = re.match(r'0[23489]-?\d{3}-?\d{4}', query, re.IGNORECASE)
 
-    return isMatchPhoneNumber(query, phoneMobileOrHome) or isMatchPhoneNumber(query, phoneIntl) or isMatchPhoneNumber(query, oldPhoneHomeNumber)
+    return isMatchPhoneNumber(query, phoneMobileOrHome) or isMatchPhoneNumber(query,
+                                                                              phoneIntl) or isMatchPhoneNumber(
+        query, oldPhoneHomeNumber)
 
 
-def isMatchPhoneNumber(query, finalSerachPhoneNumber):
-    return finalSerachPhoneNumber != None and finalSerachPhoneNumber.group(0) == query
+def isMatchPhoneNumber(query, finalSearchPhoneNumber):
+    return finalSearchPhoneNumber != None and finalSearchPhoneNumber.group(0) == query
+
+
+def formatPhoneNumber(query):
+    """
+    :returns [PHONE_TYPE, (PREFIXES), DIGITS]
+    """
 
 
 def findPhoneNumberType(phoneNumber):
@@ -32,4 +41,3 @@ def findPhoneNumberType(phoneNumber):
     if int(phoneNumber[1]) in digitsHomePhoneNumber:
         return PHONE_NUMBER_TYPE[3]
     return PHONE_NUMBER_TYPE[2]
-
