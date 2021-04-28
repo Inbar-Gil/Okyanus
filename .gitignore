@@ -4,3 +4,4 @@ Tests/tests.txt
 .idea/misc.xml
 
 .idea/Okyanus.iml
+__pycache__/

@@ -4,39 +4,81 @@ and naming conventions
 """
 
 
-def isQueryType(query):
-    """
-    Is the query given of data type specified
-    :param query: the query given for the search
-    :return: True if it is the data type, False otherwise
-    """
-    pass
+class QueryType:
+    def __init(self, query):
+        self.query = query
+        self.state = False
+        self.data = []
+
+    def isQueryType(self):
+        """
+        Is the query given of data type specified
+        :param query: the query given for the search
+        changes self.state to be true if query is of type and false otherwise
+        :raises ValueError for Incorrect format of type
+        """
+        pass
+
+    def formatQuery(self):
+        """
+        After checking the query type, formats it to all relevant data portions
+        :param query: the query of known type
+        changes self.data to be the formatted data
+        """
+        pass
+
+    def getQueryData(self):
+        if self.isQueryType():
+            self.formatQuery()
+        return self.state, self.data
 
 
-def formatQueryType(query):
-    """
-    After checking the query type, formats it to all relevant data portions
-    :param query: the query of known typ
-    :return: tuple of all the relevant data for each site
-    """
-    pass
+class Site:
+    def __init__(self, data):
+        self.data = data
+        self.response = ""
+
+    def searchSite(self):
+        """
+        searches the relevant Site and gets the response
+        :return: the site's response
+        """
 
 
-def siteTypeSearch(data, *args):
-    """
-    Uses formatted data to automatically search a site
-    :param data: the formatted data
-    :param args: antyhing else needed to use the site (username etc.)
-    :return: the search result as raw data
-    """
-    pass
+class TypeSearch:
+    def __init__(self, queryData):
+        self.data = queryData
+        self.sites = []
+        self.responses = []
+
+    def setSites(self):
+        """
+        sets all the site objects needed to search
+        :return:
+        """
+
+    def getSingleResponse(self, site):
+        """
+        searches self.site using self.data
+        :param site Site object with which to search
+        :return:
+        """
+        pass
+
+    def createAllResponses(self, query):
+        """
+        uses all self.sites to generate all responses and set self.responses
+        :return: self.responses after all searches
+        """
 
 
 class Response:
     """
-    Class to use to format answers onto to use Django
+    Class to use to format answers for use in main
     """
 
     def __init__(self, query):
+        """
+        insert headers to init
+        """
         self.query = query
-        self.answer = ""
