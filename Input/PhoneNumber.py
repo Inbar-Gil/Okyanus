@@ -5,6 +5,9 @@ Contains the functions for analyzing phone numbers
 import re
 
 PHONE_NUMBER_TYPE = {1: "Intl", 2: "Mobl", 3: "Home"}
+OLD_PHONE_LEN = 9
+END_PREFIX_INTL = 4
+END_PREFIX_HOME_MOBL = 3
 
 
 def isQueryPhoneNumber(query):
@@ -29,6 +32,26 @@ def formatPhoneNumber(query):
     """
     :returns [PHONE_TYPE, (PREFIXES), DIGITS]
     """
+    prefixes = []
+    digits = ""
+    phoneType = findPhoneNumberType(query)
+    query = query.replace("-", "").replace("\n", "")
+    if phoneType == "Intl":
+        prefixes.append(query[:END_PREFIX_INTL])
+        prefixes.append('0' + query[END_PREFIX_INTL:6])
+        digits = query[7:]
+    elif phoneType == "Mobl":
+        prefixes.append(query[:END_PREFIX_HOME_MOBL])
+        digits = query[END_PREFIX_HOME_MOBL:]
+    else:
+        if len(query) == OLD_PHONE_LEN:
+            prefixes.append(query[:END_PREFIX_HOME_MOBL - 1])
+            digits = query[END_PREFIX_HOME_MOBL:]
+        else:
+            prefixes.append(query[:END_PREFIX_HOME_MOBL])
+            digits = query[END_PREFIX_HOME_MOBL:]
+
+    return [phoneType, tuple(prefixes), digits]
 
 
 def findPhoneNumberType(phoneNumber):
