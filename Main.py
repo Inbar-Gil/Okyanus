@@ -10,7 +10,6 @@ import sys
 
 def main(query):
     try:
-        raise ValueError("hello world")
         analyzer = RegExAnalyzer(query)
         queryType, data = analyzer.returnData()
         engine = SearchEngine(queryType, data)
