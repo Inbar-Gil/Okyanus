@@ -5,10 +5,13 @@ and naming conventions
 
 
 class QueryType:
+
     def __init__(self, query):
         self.query = query
         self.state = False
         self.data = []
+
+
 
     def isQueryType(self):
         """
@@ -26,6 +29,9 @@ class QueryType:
         changes self.data to be the formatted data
         """
         pass
+
+
+
 
     def getQueryData(self):
         self.isQueryType()
