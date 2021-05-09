@@ -10,14 +10,33 @@ RE_IPV6 = "(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|(
 
 class IP(QueryType):
 
-    # function to return regex
+
     def isQueryType(self):
+        """
+            Checks if the IP type Object's query property matches the format of an IPv4/IPv6 Address.
+
+            If yes, the Object's state property is changed to True.
+
+            If the query doesn't match any format at all, nothing happens (the Object's state property stays as
+            False, because it was initialized as such).
+
+            :return: None
+        """
         if re.match(REGEX_IP, self.query) or re.match(RE_IPV6, self.query):
             self.state = True
-            #Raise Error if else
+
 
 
     def formatQuery(self):
+        """
+            Used after function "isQueryType".
+
+            Checks if the IP type Object's query property is specifically an IPv4 address or an IPv6 address.
+
+            Puts the result in the Object's date property ([IP type, self.query]).
+
+            :return: None
+         """
         for i in range(0, len(self.query), 1):
             if "." in self.query:
                 self.data = ["IPv4", self.query]
