@@ -23,10 +23,8 @@ class Username(QueryType):
         """
             Used after function "isQueryType".
 
-            Function gets the Username type Object's index of the next character out of ['.',',','-','_']
-            and, using the Object's query property, adds each segment of text between the specified charcaters to a list.
-
-            At the end, the function adds each of the list's elements to the Object's data property
+            The function, using the Username type Object's query property, makes a list containing all of the segments of the query split by the
+            characters ['.',',','-','_'] and puts that in the Object's data property.
 
             :return: None
         """
