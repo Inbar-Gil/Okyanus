@@ -1,4 +1,4 @@
-from API import QueryType
+from API.API import QueryType
 import re
 
 
@@ -9,7 +9,7 @@ class Username(QueryType):
 
             The function does this by checking if it starts with letters and not numbers.
             If yes, the Object's state property is changed to True.
-            Else, the function raises a ValueError with the message "ILLEGAL USERNAME"
+            Else, the function raises a ValueError with the message "This username is illegal"
 
             :return: None
         """
@@ -30,38 +30,10 @@ class Username(QueryType):
 
             :return: None
         """
-
-        run = True
-        index = 0
-        formatted = []
-        try:
-           index = next(i for i, c in enumerate(self.query) if c in {'.', ',', '-', '_'})
-        except StopIteration:
-            run = False
-        if index is not None and run:
-            run = True
-            curr_query = self.query[0:index]
-            formatted.append(curr_query)
-            rest_query = self.query[index+1:]
-            try:
-                index = next(i for i, c in enumerate(rest_query) if c in {'.', ',', '-', '_'})
-            except StopIteration:
-                run = False
-            while index is not None and run:
-                curr_query = rest_query[0:index]
-                formatted.append(curr_query)
-                rest_query = rest_query[index+1:]
-                try:
-                    index = next(i for i, c in enumerate(rest_query) if c in {'.', ',', '-', '_'})
-                except StopIteration:
-                    run = False
-                    rest_query = rest_query[0:]
-                    formatted.append(rest_query)
-            for x in formatted:
-                self.data.append(x)
-        else:
-            self.data = [self.query]
+        self.data = re.split(r'\.|,|-|_',self.query)
 
 
-x = Username("yu,val.navon").getQueryData()
-print (x)
+
+
+
+
