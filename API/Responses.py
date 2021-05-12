@@ -1,4 +1,4 @@
-from API.API import Response
+from API import Response
 import re
 
 EMAIL_SITES = []
@@ -29,3 +29,15 @@ class NoResponse(Response):
 
         elif self.queryType == "PHONE":
             self.siteList = PHONE_SITES
+
+
+class PhoneResponse(Response):
+    def __init__(self, query, dictInfo):
+        super().__init__(query)
+        self.name = dictInfo["Name"]
+        self.address = dictInfo["Address"]
+
+
+
+#p1 = PhoneResponse("08-62723431", {'Name': 'קינסברונר עמנואל', 'Address': 'לייב יפה 21 באר שבע'})
+#print(p1.__dict__)
