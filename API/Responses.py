@@ -38,6 +38,13 @@ class PhoneResponse(Response):
         self.address = dictInfo["Address"]
 
 
-
-#p1 = PhoneResponse("08-62723431", {'Name': 'קינסברונר עמנואל', 'Address': 'לייב יפה 21 באר שבע'})
-#print(p1.__dict__)
+class IpResponse(Response):
+    def __init__(self, query, info_dict):
+        super().__init__(query)
+        self.hostname = info_dict["hostname"]
+        self.city = info_dict["city"]
+        self.region = info_dict["region"]
+        self.loc = info_dict["loc"]
+        self.isp = info_dict["isp"]
+        self.org = info_dict["org"]
+        self.as_ = info_dict["as"]
