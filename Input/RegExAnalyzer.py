@@ -46,7 +46,7 @@ class RegExAnalyzer:
 
 
 if __name__ == "__main__":
-    with open("C:\Okyanus\Okyanus\Tests\RegExTests.txt") as f:
+    with open("../Tests/RegExTests.txt") as f:
         list = f.readlines()
         for test in list:
             test = test.split("\n")
@@ -55,4 +55,4 @@ if __name__ == "__main__":
                  temp.getQueryType()
                  print (temp.returnData())
             except ValueError:
-                print ("Invalid query: " + temp.query )
+                print ("Invalid query: " + temp.query)
