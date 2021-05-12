@@ -16,8 +16,7 @@ class Username(QueryType):
 
         if re.match(r'([a-zA-Z]+)', self.query):
             self.state = True
-        else:
-            raise ValueError("This username is illegal")
+
 
     def formatQuery(self):
         """

@@ -38,13 +38,21 @@ class RegExAnalyzer:
         elif User[0]:
             self.queryType = "USERNAME"
             self.data = User[1]
+        else:
+            raise ValueError("This username is illegal")
 
     def returnData(self):
         return self.queryType, self.data
 
 
 if __name__ == "__main__":
-    test = input("Enter query:")
-    obj = RegExAnalyzer(test)
-    obj.getQueryType()
-    print (obj.returnData())
+    with open("C:\Okyanus\Okyanus\Tests\RegExTests.txt") as f:
+        list = f.readlines()
+        for test in list:
+            test = test.split("\n")
+            temp = RegExAnalyzer(test[0])
+            try:
+                 temp.getQueryType()
+                 print (temp.returnData())
+            except ValueError:
+                print ("Invalid query: " + temp.query )
