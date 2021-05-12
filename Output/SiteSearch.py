@@ -5,7 +5,6 @@ This File contains functions for pulling information from sites and wrappers for
 from Output.EMail import *
 from Output.IPAddress import *
 from Output.PhoneNumber import *
-from API.API import *
 from Input.RegExAnalyzer import RegExAnalyzer
 from API.Responses import *
 

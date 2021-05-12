@@ -11,12 +11,8 @@ END_PREFIX_INTL = 4
 END_PREFIX_HOME_MOBL = 3
 
 
-
-
-
 def isMatchPhoneNumber(query, finalSearchPhoneNumber):
-    return finalSearchPhoneNumber != None and finalSearchPhoneNumber.group(0) == query
-
+    return finalSearchPhoneNumber is not None and finalSearchPhoneNumber.group(0) == query
 
 
 def findPhoneNumberType(phoneNumber):
@@ -38,8 +34,8 @@ class Phone(QueryType):
 
             If yes, the Object's state property is changed to True.
 
-            If the query doesn't match any format at all, nothing happens (the Object's state property stays as
-            False, because it was initialized as such).
+            If the query doesn't match any format at all, nothing happens (the Object's state
+            property stays as False, because it was initialized as such).
 
             :return: None
         """
@@ -51,8 +47,9 @@ class Phone(QueryType):
         phoneMobileOrHome = re.match(r'\d{3}-?\d{3}-?\d{4}', self.query, re.IGNORECASE)
         oldPhoneHomeNumber = re.match(r'0[23489]-?\d{3}-?\d{4}', self.query, re.IGNORECASE)
 
-        self.state = isMatchPhoneNumber(self.query, phoneMobileOrHome) or isMatchPhoneNumber(self.query,
-                                                                                  phoneIntl) or isMatchPhoneNumber(
+        self.state = isMatchPhoneNumber(self.query, phoneMobileOrHome) or isMatchPhoneNumber(
+            self.query,
+            phoneIntl) or isMatchPhoneNumber(
             self.query, oldPhoneHomeNumber)
 
     def formatQuery(self):
@@ -60,16 +57,16 @@ class Phone(QueryType):
 
             Used after function "isQueryType".
 
-            Checks the Phone type Object's query and decides if its an international/mobile/home phone number type,
-            using secondary function "findPhoneNumberType".
+            Checks the Phone type Object's query and decides if its an international/mobile/home
+            phone number type, using secondary function "findPhoneNumberType".
 
-            Formats the Phone type Object's query property according to its decided type ([PHONE_TYPE, (PREFIXES), DIGITS])
+            Formats the Phone type Object's query property according to its decided type
+            ([PHONE_TYPE, (PREFIXES), DIGITS])
 
             :return: None
 
         """
         prefixes = []
-        digits = ""
         phoneType = findPhoneNumberType(self.query)
         self.query = self.query.replace("-", "").replace("\n", "")
         if phoneType == "Intl":
@@ -88,7 +85,6 @@ class Phone(QueryType):
                 digits = self.query[END_PREFIX_HOME_MOBL:]
 
         self.data = [phoneType, tuple(prefixes), digits]
-
 
 
 num = Phone("+376423622693").getQueryData()
