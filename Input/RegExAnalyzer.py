@@ -47,12 +47,12 @@ class RegExAnalyzer:
 
 if __name__ == "__main__":
     with open("../Tests/RegExTests.txt") as f:
-        list = f.readlines()
-        for test in list:
+        lister = f.readlines()
+        for test in lister:
             test = test.split("\n")
             temp = RegExAnalyzer(test[0])
             try:
-                 temp.getQueryType()
-                 print (temp.returnData())
+                temp.getQueryType()
+                print(temp.returnData())
             except ValueError:
-                print ("Invalid query: " + temp.query)
+                print("Invalid query: " + temp.query)

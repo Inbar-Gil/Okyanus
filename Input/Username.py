@@ -27,7 +27,7 @@ class Username(QueryType):
 
             :return: None
         """
-        self.data = re.split(r'\.|,|-|_',self.query)
+        self.data = re.split(r'[.,\-_]{1}',self.query)
 
 
 
