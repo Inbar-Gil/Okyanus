@@ -44,6 +44,7 @@ class RegExAnalyzer:
 
 
 if __name__ == "__main__":
-    query = RegExAnalyzer(input("ENTER QUERY: "))
-    query.getQueryType()
-    print(query.returnData())
+    test = input("Enter query:")
+    obj = RegExAnalyzer(test)
+    obj.getQueryType()
+    print (obj.returnData())
