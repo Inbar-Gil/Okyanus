@@ -52,10 +52,15 @@ class IpApi(Site):
         return output_dic
 
 
-test = IpApi("5.109.46.92")
-result = test.searchSite()
-print(result)
+def searchIp(Ip):
+    ip_info = Ipinfo(Ip)
+    info_dict = ip_info.searchSite()
+    ip_api = IpApi(Ip)
+    api_dict = ip_api.searchSite()
+    info_dict.update(api_dict)
 
-test = Ipinfo("5.109.46.92")
-result = test.searchSite()
-print(result)
+    return info_dict
+
+
+x = searchIp("8.8.8.8")
+print(x)
