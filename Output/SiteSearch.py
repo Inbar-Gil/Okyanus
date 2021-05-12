@@ -35,14 +35,15 @@ class SearchEngine:
         """
         self.searchType()
         if self.queryType == "IP":
-            return IPResponse(query,self.response)
+            return IpResponse(query, self.response)
         if self.queryType == "PHONE":
             return PhoneResponse(query, self.response)
         if self.queryType == "USERNAME":
             return Response(query)
 
+
 ex = RegExAnalyzer("8.8.8.8")
 ex.getQueryType()
 exam = SearchEngine(ex.returnData()[0], ex.returnData()[1])
 exam.searchType()
-print (exam.response)
+# print (exam.response)

@@ -11,6 +11,7 @@ import sys
 def main(query):
     try:
         analyzer = RegExAnalyzer(query)
+        analyzer.getQueryType()
         queryType, data = analyzer.returnData()
         engine = SearchEngine(queryType, data)
         response = engine.generateResponse(query)

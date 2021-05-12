@@ -1,4 +1,4 @@
-from API import Response
+from API.API import Response
 import re
 
 EMAIL_SITES = []

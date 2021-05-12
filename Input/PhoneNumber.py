@@ -82,7 +82,7 @@ class Phone(QueryType):
         else:
             if len(self.query) == OLD_PHONE_LEN:
                 prefixes.append(self.query[:END_PREFIX_HOME_MOBL - 1])
-                digits = self.query[END_PREFIX_HOME_MOBL:]
+                digits = self.query[END_PREFIX_HOME_MOBL - 1:]
             else:
                 prefixes.append(self.query[:END_PREFIX_HOME_MOBL])
                 digits = self.query[END_PREFIX_HOME_MOBL:]
