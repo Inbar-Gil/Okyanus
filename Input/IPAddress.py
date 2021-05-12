@@ -3,8 +3,9 @@ from API.API import QueryType
 
 VALID_IP = False
 # regex string for validating an Ip-address
-REGEX_IP = "^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$"
+REGEX_IP = "^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})$"
 # regex string for validating an its a ipv6
+RE_IPV6_GENERAL = "((\w{1,4}:){7}\w{1,4})"
 RE_IPV6 = "(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))"
 
 
@@ -22,7 +23,15 @@ class IP(QueryType):
 
             :return: None
         """
-        if re.match(REGEX_IP, self.query) or re.match(RE_IPV6, self.query):
+        if re.match(REGEX_IP, self.query):
+            octet = re.split(r'\.', self.query)
+            for x in octet:
+                if int(x)>255 or int(x)<0:
+                    raise ValueError("This IPv4 address is illegal")
+            self.state = True
+        elif re.match(RE_IPV6_GENERAL, self.query):
+            if not(re.match(RE_IPV6, self.query)):
+                raise ValueError("This IPv6 address is illegal")
             self.state = True
 
 
@@ -45,10 +54,10 @@ class IP(QueryType):
 
 
 if __name__ == '__main__':
-    Ip = IP("254.1.2.2")
+    Ip = IP("246.1.2.2")
     print (Ip.getQueryData())
 
-    Ip = IP("64ba:c4c9:60ee:1f20:e034:b8ab:49d2:ee2e")
+    Ip = IP("FFXF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF")
     print(Ip.getQueryData())
 
     Ip = IP("6db8:1058:b70:63e0:f52c:39e:ac11:ab64")
