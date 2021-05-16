@@ -59,14 +59,3 @@ class IP(QueryType):
                 self.data = ["IPv4", self.query]
             elif ":" in self.query:
                 self.data = ["IPv6", self.query]
-
-
-if __name__ == '__main__':
-    Ip = IP("246.1.2.2")
-    print(Ip.getQueryData())
-
-    Ip = IP("FFXF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF")
-    print(Ip.getQueryData())
-
-    Ip = IP("6db8:1058:b70:63e0:f52c:39e:ac11:ab64")
-    print(Ip.getQueryData())

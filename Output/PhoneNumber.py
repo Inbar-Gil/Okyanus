@@ -29,7 +29,7 @@ class PhoneNumber441(Site):
             # Returns: Name, Address
             return [infoHtmlList[3], infoHtmlList[4]]
         except Exception:
-            print("No Response\n")
+            print("No Response")
 
 
 def searchPhoneNumber(data):

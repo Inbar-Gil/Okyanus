@@ -85,6 +85,3 @@ class Phone(QueryType):
                 digits = self.query[END_PREFIX_HOME_MOBL:]
 
         self.data = [phoneType, tuple(prefixes), digits]
-
-
-num = Phone("+376423622693").getQueryData()

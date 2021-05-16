@@ -47,9 +47,3 @@ class EMail(QueryType):
         DOMAIN = afterAtSignIndex[1:periodSignIndex]
         ENDING = afterAtSignIndex[periodSignIndex:]
         self.data = [PREFIX, DOMAIN, ENDING]
-
-
-if __name__ == "__main__":
-    query = input("Enter paragraph:")
-    email = EMail(query)
-    print(email.getQueryData())
