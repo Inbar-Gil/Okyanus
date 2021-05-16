@@ -1,7 +1,12 @@
-Okyanus
-Project Files:
-README.md
-API.py - Site Functionality API from query to result
-QueryID.py - RegEx query analyzer
-SiteSearch.py - Automatically searches different SiteSearch
-Server.py - Django API to contact server
+# ___Okyanus___ # Search Engine
+
+### Project Description
+_insert description here_
+
+
+### *Modules*
+
+##### API - Code Functionality API from query to result
+- [API](API/API.py) - Base Class and Function Headers
+- [Responses](API/Responses.py) - Response Classes for Output use
+
