@@ -13,7 +13,7 @@ class SearchEngine:
     def __init__(self, queryType, data):
         self.queryType = queryType
         self.data = data
-        self.response = Response("")
+        self.response = Response(" ")
 
     def searchType(self):
         """
