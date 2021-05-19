@@ -11,6 +11,7 @@ class ErrorResponse(Response):
         super().__init__(query)
         self.exception = re.split("'", str(error.__class__))[1]
         self.message = error.__str__()
+        self.responseType = "ErrorResponse"
 
 
 class NoResponse(Response):
@@ -19,6 +20,7 @@ class NoResponse(Response):
         self.queryType = queryType
         self.siteList = []
         self.setSites()
+        self.responseType = "NoResponse"
 
     def setSites(self):
         if self.queryType == "EMAIL":
