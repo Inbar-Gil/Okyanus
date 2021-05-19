@@ -1,5 +1,5 @@
 import re
-from API.API import QueryType
+from ..API.API import QueryType
 
 VALID_IP = False
 # regex string for validating an Ip-address

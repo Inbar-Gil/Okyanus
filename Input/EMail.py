@@ -1,5 +1,5 @@
 import re
-from API.API import QueryType
+from ..API.API import QueryType
 
 
 class EMail(QueryType):

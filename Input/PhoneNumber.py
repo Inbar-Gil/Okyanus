@@ -3,7 +3,7 @@ Contains the functions for analyzing phone numbers
 """
 
 import re
-from API.API import QueryType
+from ..API.API import QueryType
 
 PHONE_NUMBER_TYPE = {1: "Intl", 2: "Mobl", 3: "Home"}
 OLD_PHONE_LEN = 9

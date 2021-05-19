@@ -3,7 +3,7 @@ This file contains functions for searching IP websites
 """
 import urllib.request
 import json
-from API.API import Site
+from ..API.API import Site
 
 
 class Ipinfo(Site):

@@ -2,11 +2,11 @@
 This File contains functions for pulling information from sites and wrappers for site functions
 """
 
-from Output.EMail import *
-from Output.IPAddress import *
-from Output.PhoneNumber import *
-from Input.RegExAnalyzer import RegExAnalyzer
-from API.Responses import *
+from .EMail import *
+from .IPAddress import *
+from .PhoneNumber import *
+from ..Input.RegExAnalyzer import RegExAnalyzer
+from ..API.Responses import *
 
 
 class SearchEngine:
