@@ -57,9 +57,9 @@ _insert description here_
 
 ##### Output - Site classes for generating responses for queries.
 - [IPAddress.py](https://github.com/Inbar-Gil/Okyanus/blob/main/Output/IPAddress.py) - Generates responses for IP addresses
-- - IPinfo class - makes a dictionary containing all of the data recieved for the IP address from the site ["IP Info"]() and puts it in a dictionary.
+- - IPinfo class - makes a dictionary containing all of the data recieved for the IP address from the site ["IP Info"](https://ipinfo.io/) and puts it in a dictionary.
     
-- - IPApi class - makes a dictionary containing all of the data recieved for the IP address from the site ["IP API"]() and puts it in a dictionary.
+- - IPApi class - makes a dictionary containing all of the data recieved for the IP address from the site ["IP API"](https://ip-api.com/) and puts it in a dictionary.
     
 - - searchIp function - uses the two classes and returns the combination of the two dictionaries.
     
