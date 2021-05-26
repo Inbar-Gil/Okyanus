@@ -31,33 +31,30 @@ _insert description here_
     
 
 - - Response class - returns an "error response" message or "no response" message if needed.  
-      Each Response type object contains a "query" property (a string that contains the query that the user inputs).
+      Each Response type object contains a "query" property (a string that contains the query that the user inputs), and a "responseType" property (a string that contains the type of response recieved).
 
 
 - [Responses](https://github.com/Inbar-Gil/Okyanus/blob/main/API/Responses.py) - Response Classes for Output use
   
 
 - - ErrorResponse class - sends an error message to the user.  
-      each ErrorResponse type object contains a "
-      query" property (a string that contains the query that the user inputs), an "exception" property (a string that contains the type of error that occurred), and a "message" property (a string that contains the error message).
+      each ErrorResponse type object contains an "exception" property (a string that contains the type of error that occurred), and a "message" property (a string that contains the error message).
 
 
 - - NoResponse class - sends a message to the user saying there were no responses for his query. 
       
-      each NoResponse type object contains a "query" property (a string that contains the query that the user inputs),
-      an "queryType" property (a string that contains the type of data of the query), and a "siteList" property(a list that contains the sites that were used while the
+      each NoResponse type object contains a "queryType" property (a string that contains the type of data of the query), and a "siteList" property(a list that contains the sites that were used while the
       program was running).
     
 
 - - PhoneResponse class - sends a message to the user containing the name and address related to the inputted phone number 
       
-      each PhoneResponse type object contains a "query" property (a string that contains the phone number that the user inputs),
-      a "name" property, and an "address" property (two strings that contain the name and address related to the phone number, respectively).
+      each PhoneResponse type object contains a "name" property, and an "address" property (two strings that contain the name and address related to the phone number, respectively).
     
 
 - - IpResponse class - sends a message to the user containing all of the data that we recieved for the inputted IP address.
       
-      each IpResponse type object contains a "query" property (a string that contains the IP address that the user inputs), and "hostname", "city", "region", "loc", "isp", "org", "as_" properties (strings that contain the data mentioned in their names).
+      each IpResponse type object contains the properties "hostname", "city", "region", "loc", "isp", "org", and "as_" (strings that contain the data mentioned in their names).
      
 
 ##### Input - QueryType classes for legality checking and formatting from query input.
@@ -94,7 +91,4 @@ _insert description here_
 
     Uses the above modules (and the 2 related Response classes) to get responses for IP addresses (of types IPv4 and IPv6) and home phone numbers and generate them on the Okyanus server.
 
-QueryID.py - RegEx query analyzer  
-SiteSearch.py - Automatically searches different Sites  
-Server.py - Django API to contact server  
-README.md  
+
