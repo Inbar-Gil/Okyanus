@@ -3,7 +3,7 @@ This file contains functions for searching IP websites
 """
 import urllib.request
 import json
-from ..API.API import Site
+from API.API import Site
 
 
 class Ipinfo(Site):
@@ -26,8 +26,7 @@ class Ipinfo(Site):
         return output_dic
 
     def searchIPInfo(self):
-        request_url = urllib.request.urlopen(
-            'http://ipinfo.io/' + self.data + '?token=c2b88a2d6f552a')
+        request_url = urllib.request.urlopen('http://ipinfo.io/' + self.data + '?token=c2b88a2d6f552a')
         return request_url.read()
 
 
@@ -61,3 +60,7 @@ def searchIp(Ip):
     info_dict.update(api_dict)
 
     return info_dict
+
+
+x = searchIp("8.8.8.8")
+

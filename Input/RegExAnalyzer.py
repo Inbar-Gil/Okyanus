@@ -1,10 +1,10 @@
 """
 contains the code which analyzes the query and chooses the sites to search
 """
-from .EMail import EMail
-from .IPAddress import IP
-from .PhoneNumber import Phone
-from .Username import Username
+from Input.EMail import EMail
+from Input.IPAddress import IP
+from Input.PhoneNumber import Phone
+from Input.Username import Username
 
 
 class RegExAnalyzer:
@@ -43,3 +43,16 @@ class RegExAnalyzer:
 
     def returnData(self):
         return self.queryType, self.data
+
+
+if __name__ == "__main__":
+    with open("../Tests/RegExTests.txt") as f:
+        lister = f.readlines()
+        for test in lister:
+            test = test.split("\n")
+            temp = RegExAnalyzer(test[0])
+            try:
+                temp.getQueryType()
+                print(temp.returnData())
+            except ValueError:
+                print("Invalid query: " + temp.query)

@@ -11,9 +11,12 @@ class QueryType:
         self.state = False
         self.data = []
 
+
+
     def isQueryType(self):
         """
         Is the query given of data type specified
+        :param query: the query given for the search
         changes self.state to be true if query is of type and false otherwise
         :raises ValueError for Incorrect format of type
         """
@@ -22,9 +25,13 @@ class QueryType:
     def formatQuery(self):
         """
         After checking the query type, formats it to all relevant data portions
+        :param query: the query of known type
         changes self.data to be the formatted data
         """
         pass
+
+
+
 
     def getQueryData(self):
         self.isQueryType()
