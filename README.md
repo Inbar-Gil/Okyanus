@@ -1,10 +1,6 @@
 # ___Okyanus___
 ## Ship Module
 
-### Project Description
-
-_insert description here_
-
 ### *Modules*
 
 ##### API - Code Functionality API from query to result
