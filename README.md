@@ -8,7 +8,7 @@ _insert description here_
 
 ##### API - Code Functionality API from query to result
 
-- [API.py](https://github.com/Inbar-Gil/Okyanus/blob/main/API/API.py) - Site Functionality API from query to result.
+- [API.py](API/API.py) - Site Functionality API from query to result.
   
 
 - - QueryType class - detects if query is an Email Address/IP Address/Phone number/Username and formats accordingly.
@@ -34,7 +34,7 @@ _insert description here_
       Each Response type object contains a "query" property (a string that contains the query that the user inputs), and a "responseType" property (a string that contains the type of response recieved).
 
 
-- [Responses](https://github.com/Inbar-Gil/Okyanus/blob/main/API/Responses.py) - Response Classes for Output use
+- [Responses](API/Responses.py) - Response Classes for Output use
   
 
 - - ErrorResponse class - sends an error message to the user.  
@@ -58,22 +58,22 @@ _insert description here_
      
 
 ##### Input - QueryType classes for legality checking and formatting from query input.
-- EMail class from [EMail.py](https://github.com/Inbar-Gil/Okyanus/blob/main/Input/EMail.py) - used to check if the query is an email address, if its legal or not (raises a ValueError accordingly), and format accordingly ([PREFIX, DOMAIN, ENDING]).
+- EMail class from [EMail.py](Input/EMail.py) - used to check if the query is an email address, if its legal or not (raises a ValueError accordingly), and format accordingly (\[PREFIX, DOMAIN, ENDING]).
 
 
-- IPAddress class from [IPAddress.py](https://github.com/Inbar-Gil/Okyanus/blob/main/Input/IPAddress.py) - used to check if the query is an IP address, decide its type, if its legal or not (raises a ValueError accordingly), and format accordingly ([IP_TYPE, IP_ADDRESS]).
+- IPAddress class from [IPAddress.py](Input/IPAddress.py) - used to check if the query is an IP address, decide its type, if its legal or not (raises a ValueError accordingly), and format accordingly (\[IP_TYPE, IP_ADDRESS]).
 
 
-- PhoneNumber class from [PhoneNumber.py](https://github.com/Inbar-Gil/Okyanus/blob/main/Input/PhoneNumber.py) - used to check if the query is a phone number, decide its type, and format accordingly ([PHONE TYPE, (PREFIXES), DIGITS]).
+- PhoneNumber class from [PhoneNumber.py](Input/PhoneNumber.py) - used to check if the query is a phone number, decide its type, and format accordingly (\[PHONE TYPE, (PREFIXES), DIGITS]).
 
 
-- Username class from [Username.py](https://github.com/Inbar-Gil/Okyanus/blob/main/Input/Username.py) - used to check if the query is a username, decide if its legal or not (raises a ValueError accordingly), and format accordingly (splits the string into a list containing every substring between the symbols '.' , ' ,' , '-' , '_').
+- Username class from [Username.py](Input/Username.py) - used to check if the query is a username, decide if its legal or not (raises a ValueError accordingly), and format accordingly (splits the string into a list containing every substring between the symbols '.' , ' ,' , '-' , '_').
 
 
-- RegExAnalyser class from [RegExAnalyser.py](https://github.com/Inbar-Gil/Okyanus/blob/main/Input/RegExAnalyzer.py) - uses all of the classes in the Input folder to get a query and decide its type (from the types named above), decides if its legal or not, and formats accordingly
+- RegExAnalyser class from [RegExAnalyser.py](Input/RegExAnalyzer.py) - uses all of the classes in the Input folder to get a query and decide its type (from the types named above), decides if its legal or not, and formats accordingly
 
 ##### Output - Site classes for generating responses for queries.
-- [IPAddress.py](https://github.com/Inbar-Gil/Okyanus/blob/main/Output/IPAddress.py) - Generates responses for IP addresses
+- [IPAddress.py](Output/IPAddress.py) - Generates responses for IP addresses
 - - IPinfo class - makes a dictionary containing all of the data received for the IP address from the site ["IP Info"](https://ipinfo.io/) and puts it in a dictionary.
     
 - - IPApi class - makes a dictionary containing all of the data received for the IP address from the site ["IP API"](https://ip-api.com/) and puts it in a dictionary.
@@ -81,13 +81,13 @@ _insert description here_
 - - searchIp function - uses the two classes and returns the combination of the two dictionaries.
     
     
-- [PhoneNumber.py](https://github.com/Inbar-Gil/Okyanus/blob/main/Output/PhoneNumber.py) - Generates responses for home phone numbers
+- [PhoneNumber.py](Output/PhoneNumber.py) - Generates responses for home phone numbers
 - - Phonenumber441 class - used to return the name and address related to the phone number by using the site ["441il"](https://441il.com/)
     
 - - searchPhoneNumber function - uses the class above to return a dictionary with the name and address related to the phone number.
     
 
-- SearchEngine class from [SiteSearch.py](https://github.com/Inbar-Gil/Okyanus/blob/main/Output/SiteSearch.py) - does not inherit from the Site class.
+- SearchEngine class from [SiteSearch.py](Output/SiteSearch.py) - does not inherit from the Site class.
 
     Uses the above modules (and the 2 related Response classes) to get responses for IP addresses (of types IPv4 and IPv6) and home phone numbers and generate them on the Okyanus server.
 
