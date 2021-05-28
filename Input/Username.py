@@ -1,4 +1,4 @@
-from API.API import QueryType
+from ..API.API import QueryType
 import re
 
 
@@ -17,7 +17,6 @@ class Username(QueryType):
         if re.match(r'([a-zA-Z]+)', self.query):
             self.state = True
 
-
     def formatQuery(self):
         """
             Used after function "isQueryType".
@@ -27,10 +26,4 @@ class Username(QueryType):
 
             :return: None
         """
-        self.data = re.split(r'[.,\-_]{1}',self.query)
-
-
-
-
-
-
+        self.data = re.split(r'[.,\-_]{1}', self.query)

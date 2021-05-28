@@ -1,5 +1,5 @@
 import re
-from API.API import QueryType
+from ..API.API import QueryType
 
 VALID_IP = False
 # regex string for validating an Ip-address
@@ -10,7 +10,6 @@ RE_IPV6 = "(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|(
 
 
 class IP(QueryType):
-
 
     def isQueryType(self):
         """
@@ -26,15 +25,13 @@ class IP(QueryType):
         if re.match(REGEX_IP, self.query):
             octet = re.split(r'\.', self.query)
             for x in octet:
-                if int(x)>255 or int(x)<0:
+                if int(x) > 255 or int(x) < 0:
                     raise ValueError("This IPv4 address is illegal")
             self.state = True
         elif re.match(RE_IPV6_GENERAL, self.query):
-            if not(re.match(RE_IPV6, self.query)):
+            if not (re.match(RE_IPV6, self.query)):
                 raise ValueError("This IPv6 address is illegal")
             self.state = True
-
-
 
     def formatQuery(self):
         """
@@ -55,12 +52,10 @@ class IP(QueryType):
 
 if __name__ == '__main__':
     Ip = IP("246.1.2.2")
-    print (Ip.getQueryData())
+    print(Ip.getQueryData())
 
     Ip = IP("FFXF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF")
     print(Ip.getQueryData())
 
     Ip = IP("6db8:1058:b70:63e0:f52c:39e:ac11:ab64")
-    print (Ip.getQueryData())
-
-
+    print(Ip.getQueryData())

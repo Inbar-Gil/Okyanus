@@ -11,8 +11,6 @@ class QueryType:
         self.state = False
         self.data = []
 
-
-
     def isQueryType(self):
         """
         Is the query given of data type specified
@@ -29,9 +27,6 @@ class QueryType:
         changes self.data to be the formatted data
         """
         pass
-
-
-
 
     def getQueryData(self):
         self.isQueryType()

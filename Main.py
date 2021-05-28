@@ -1,9 +1,9 @@
 """
 This File contains the main code running the script and Server interface
 """
-from Input.RegExAnalyzer import *
-from Output.SiteSearch import *
-from API.Responses import *
+from .Input.RegExAnalyzer import *
+from .Output.SiteSearch import *
+from .API.Responses import *
 import okyanus.manage
 import sys
 

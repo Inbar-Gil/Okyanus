@@ -1,10 +1,10 @@
 """
 contains the code which analyzes the query and chooses the sites to search
 """
-from Input.EMail import EMail
-from Input.IPAddress import IP
-from Input.PhoneNumber import Phone
-from Input.Username import Username
+from .EMail import EMail
+from .IPAddress import IP
+from .PhoneNumber import Phone
+from .Username import Username
 
 
 class RegExAnalyzer:
