@@ -24,4 +24,5 @@ def main(query):
 
 
 if __name__ == "__main__":
-    okyanus.manage.main()
+    main_query = input()
+    main(main_query)
