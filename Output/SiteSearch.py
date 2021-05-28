@@ -5,6 +5,7 @@ This File contains functions for pulling information from sites and wrappers for
 from Output.EMail import *
 from Output.IPAddress import *
 from Output.PhoneNumber import *
+from API.API import *
 from Input.RegExAnalyzer import RegExAnalyzer
 from API.Responses import *
 
@@ -13,7 +14,7 @@ class SearchEngine:
     def __init__(self, queryType, data):
         self.queryType = queryType
         self.data = data
-        self.response = Response(" ")
+        self.response = Response("")
 
     def searchType(self):
         """
@@ -39,3 +40,10 @@ class SearchEngine:
             return PhoneResponse(query, self.response)
         if self.queryType == "USERNAME":
             return Response(query)
+
+
+ex = RegExAnalyzer("8.8.8.8")
+ex.getQueryType()
+exam = SearchEngine(ex.returnData()[0], ex.returnData()[1])
+exam.searchType()
+# print (exam.response)

@@ -43,3 +43,16 @@ class RegExAnalyzer:
 
     def returnData(self):
         return self.queryType, self.data
+
+
+if __name__ == "__main__":
+    with open("../Tests/RegExTests.txt") as f:
+        lister = f.readlines()
+        for test in lister:
+            test = test.split("\n")
+            temp = RegExAnalyzer(test[0])
+            try:
+                temp.getQueryType()
+                print(temp.returnData())
+            except ValueError:
+                print("Invalid query: " + temp.query)
