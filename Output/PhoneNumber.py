@@ -41,6 +41,3 @@ def searchPhoneNumber(data):
     listInfo = p1.searchSite()
     dictInfo = {"Name": listInfo[0], "Address": listInfo[1]}
     return dictInfo
-
-
-print(PhoneNumber441(["ed", ("09",), "6272343"]).searchSite())

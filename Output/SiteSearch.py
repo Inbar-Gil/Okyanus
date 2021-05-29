@@ -40,10 +40,3 @@ class SearchEngine:
             return PhoneResponse(query, self.response)
         if self.queryType == "USERNAME":
             return Response(query)
-
-
-ex = RegExAnalyzer("8.8.8.8")
-ex.getQueryType()
-exam = SearchEngine(ex.returnData()[0], ex.returnData()[1])
-exam.searchType()
-# print (exam.response)

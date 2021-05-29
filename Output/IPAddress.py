@@ -61,6 +61,3 @@ def searchIp(Ip):
     info_dict.update(api_dict)
 
     return info_dict
-
-
-x = searchIp("8.8.8.8")
