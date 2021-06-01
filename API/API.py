@@ -84,3 +84,4 @@ class Response:
         insert headers to init
         """
         self.query = query
+        self.responseType = self.__class__.__name__
