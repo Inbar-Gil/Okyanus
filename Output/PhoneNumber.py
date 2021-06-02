@@ -27,7 +27,7 @@ class PhoneNumber441(Site):
             # Returns: Name, Address
             return {"Name": infoHtmlList[3], "Adress": infoHtmlList[4]}
         except Exception:
-            return {"Answer": "No Response\n"}
+            raise ValueError
 
 
 def searchPhoneNumber(data):

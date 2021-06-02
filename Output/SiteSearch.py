@@ -32,10 +32,13 @@ class SearchEngine:
         uses self.responses to create the relevant response Object type
         :return: the response object
         """
-        self.searchType()
-        if self.queryType == "IP":
-            return IpResponse(query, self.response)
-        if self.queryType == "PHONE":
-            return PhoneResponse(query, self.response)
-        if self.queryType == "USERNAME":
-            return Response(query)
+        try:
+            self.searchType()
+            if self.queryType == "IP":
+                return IpResponse(query, self.response)
+            if self.queryType == "PHONE":
+                return PhoneResponse(query, self.response)
+            if self.queryType == "USERNAME":
+                return Response(query)
+        except ValueError:
+            return NoResponse(query, self.queryType)
