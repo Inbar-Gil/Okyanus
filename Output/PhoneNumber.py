@@ -16,9 +16,7 @@ class PhoneNumber441(Site):
         self.data - list of the info -> phone number
         """
         try:
-            resp = req.get(
-                "https://441il.com/en/looktra.php?area=" + self.data[1][0] + "&phone=" + self.data[
-                    2])
+            resp = req.get(f"https://441il.com/en/looktra.php?area={self.data[1][0]}&phone={self.data[2]}")
             infoHtmlList = resp.text.split("<TD>")[1:]
             place = 0
             for i in infoHtmlList:
@@ -27,9 +25,9 @@ class PhoneNumber441(Site):
                 place += 1
 
             # Returns: Name, Address
-            return [infoHtmlList[3], infoHtmlList[4]]
+            return {"Name": infoHtmlList[3], "Address": infoHtmlList[4]}
         except Exception:
-            print("No Response\n")
+            raise ValueError
 
 
 def searchPhoneNumber(data):
@@ -38,6 +36,10 @@ def searchPhoneNumber(data):
     :return: dict
     """
     p1 = PhoneNumber441(data)
-    listInfo = p1.searchSite()
-    dictInfo = {"Name": listInfo[0], "Address": listInfo[1]}
+    dictInfo = p1.searchSite()
     return dictInfo
+
+
+if __name__ == '__main__':
+    print(PhoneNumber441(["ed", ("04",), "6272343"]).searchSite())
+    print(searchPhoneNumber(["ed", ("04",), "6272343"]))
