@@ -2,7 +2,7 @@
 This file contains functions for searching phone number websites
 """
 import requests as req
-from API.API import Site
+from Okyanus.API.API import Site
 
 NO_RESPONSE = 'NONE'
 
@@ -25,7 +25,7 @@ class PhoneNumber441(Site):
                 place += 1
 
             # Returns: Name, Address
-            return {"Name": infoHtmlList[3], "Adress": infoHtmlList[4]}
+            return {"Name": infoHtmlList[3], "Address": infoHtmlList[4]}
         except Exception:
             raise ValueError
 
@@ -36,9 +36,10 @@ def searchPhoneNumber(data):
     :return: dict
     """
     p1 = PhoneNumber441(data)
-    listInfo = p1.searchSite()
-    dictInfo = {"Name": listInfo[0], "Address": listInfo[1]}
+    dictInfo = p1.searchSite()
     return dictInfo
 
 
-print(PhoneNumber441(["ed", ("09",), "6272343"]).searchSite())
+if __name__ == '__main__':
+    print(PhoneNumber441(["ed", ("04",), "6272343"]).searchSite())
+    print(searchPhoneNumber(["ed", ("04",), "6272343"]))
