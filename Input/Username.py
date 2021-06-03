@@ -1,4 +1,4 @@
-from API.API import QueryType
+from ..API.API import QueryType
 import re
 
 
@@ -21,10 +21,9 @@ class Username(QueryType):
         """
             Used after function "isQueryType".
 
-            The function, using the Username type Object's query property, makes a list containing
-            all of the segments of the query split by the characters ['.',',','-','_'] and puts
-            that in the Object's data property.
+            The function, using the Username type Object's query property, makes a list containing all of the segments of the query split by the
+            characters ['.',',','-','_'] and puts that in the Object's data property.
 
             :return: None
         """
-        self.data = re.split(r'[.,\-_]', self.query)
+        self.data = re.split(r'[.,\-_]{1}', self.query)
