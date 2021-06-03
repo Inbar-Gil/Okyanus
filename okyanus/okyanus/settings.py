@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'okyanus.okyanus.urls'
+ROOT_URLCONF = 'Okyanus.okyanus.okyanus.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'okyanus.okyanus.wsgi.application'
+WSGI_APPLICATION = 'Okyanus.okyanus.okyanus.wsgi.application'
 
 
 # Database

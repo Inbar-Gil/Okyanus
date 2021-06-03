@@ -1,5 +1,6 @@
 import re
-from API.API import QueryType
+from ..API.API import QueryType
+
 
 class EMail(QueryType):
 
@@ -17,7 +18,7 @@ class EMail(QueryType):
 
             :return: None
         """
-        if re.match(r'[a-zA-Z0-9._-]+@[\w.-]+',self.query):
+        if re.match(r'[a-zA-Z0-9._-]+@[\w.-]+', self.query):
             count = 0
             atSignIndex = self.query.find("@")
             prefix = self.query[0:atSignIndex]
@@ -29,7 +30,6 @@ class EMail(QueryType):
                 if count == 2:
                     raise ValueError("This email is not legal")
             self.state = True
-
 
     def formatQuery(self):
         """
@@ -47,8 +47,3 @@ class EMail(QueryType):
         DOMAIN = afterAtSignIndex[1:periodSignIndex]
         ENDING = afterAtSignIndex[periodSignIndex:]
         self.data = [PREFIX, DOMAIN, ENDING]
-
-if __name__ == "__main__":
-    query = input("Enter paragraph:")
-    email = EMail(query)
-    print (email.getQueryData())

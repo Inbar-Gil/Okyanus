@@ -1,10 +1,10 @@
 """
 This File contains the main code running the script and Server interface
 """
-from Input.RegExAnalyzer import *
-from Output.SiteSearch import *
-from API.Responses import *
-import okyanus.manage
+from .Input.RegExAnalyzer import *
+from .Output.SiteSearch import *
+from .API.Responses import *
+from .okyanus import manage
 import sys
 
 
@@ -24,4 +24,4 @@ def main(query):
 
 
 if __name__ == "__main__":
-    okyanus.manage.main()
+    manage.main()
