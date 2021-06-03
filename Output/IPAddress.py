@@ -18,8 +18,11 @@ class IpInfo(Site):
         keys = ["hostname", "city", "region", "loc"]
         data_file = self.searchIPInfo()
         Info_dict = json.loads(data_file)
-        output_dic = {key: Info_dict[key] for key in keys}
-        return output_dic
+        try:
+            output_dic = {key: Info_dict[key] for key in keys}
+            return output_dic
+        except Exception:
+            return dict()
 
 
 class IpApi(Site):
@@ -32,8 +35,11 @@ class IpApi(Site):
         keys = ["isp", "org", "as"]
         data_file = self.searchIPAPI()
         Api_Dict = json.loads(data_file)
-        output_dic = {key: Api_Dict[key] for key in keys}
-        return output_dic
+        try:
+            output_dic = {key: Api_Dict[key] for key in keys}
+            return output_dic
+        except Exception:
+            return dict()
 
 
 def searchIp(Ip):
@@ -42,9 +48,13 @@ def searchIp(Ip):
     ip_api = IpApi(Ip)
     api_dict = ip_api.searchSite()
     info_dict.update(api_dict)
+    if info_dict != {}:
+        return info_dict
+    else:
+        raise ValueError
 
-    return info_dict
 
+if __name__ == '__main__':
 
-x = searchIp("8.8.8.8")
-print(x)
+    x = searchIp("0.0.0.0")
+    print(x)
