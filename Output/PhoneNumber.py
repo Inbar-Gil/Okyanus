@@ -2,6 +2,7 @@
 This file contains functions for searching phone number websites
 """
 import requests as req
+
 from ..API.API import Site
 
 NO_RESPONSE = 'NONE'

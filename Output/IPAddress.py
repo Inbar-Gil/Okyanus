@@ -1,8 +1,9 @@
 """
 This file contains functions for searching IP websites
 """
-import urllib.request
 import json
+import urllib.request
+
 from ..API.API import Site
 
 TOKEN = "c2b88a2d6f552a"
@@ -11,7 +12,7 @@ TOKEN = "c2b88a2d6f552a"
 class IpInfo(Site):
 
     def searchIPInfo(self):
-        request_url = urllib.request.urlopen('http://ipinfo.io/' + self.data + '?token=' + TOKEN)
+        request_url = urllib.request.urlopen(f"http://ipinfo.io/{self.data}?token={TOKEN}")
         return request_url.read()
 
     def searchSite(self):
@@ -28,7 +29,7 @@ class IpInfo(Site):
 class IpApi(Site):
 
     def searchIPAPI(self):
-        request_url = urllib.request.urlopen('http://ip-api.com/json/' + self.data)
+        request_url = urllib.request.urlopen(f"http://ip-api.com/json/'{self.data}")
         return request_url.read()
 
     def searchSite(self):

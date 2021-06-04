@@ -1,4 +1,5 @@
 import re
+
 from ..API.API import QueryType
 
 

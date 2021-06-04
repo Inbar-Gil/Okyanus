@@ -2,11 +2,8 @@
 This File contains functions for pulling information from sites and wrappers for site functions
 """
 
-from .EMail import *
 from .IPAddress import *
 from .PhoneNumber import *
-from ..API.API import *
-from ..Input.RegExAnalyzer import RegExAnalyzer
 from ..API.Responses import *
 
 
@@ -19,7 +16,7 @@ class SearchEngine:
     def searchType(self):
         """
         sets self.responses to be the results of all searches of type self.searchType
-        :return: ReponseType object
+        :return: ResponseType object
         """
         if self.queryType == "IP":
             self.response = searchIp(self.data[1])
