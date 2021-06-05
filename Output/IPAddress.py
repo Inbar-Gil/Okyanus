@@ -4,13 +4,13 @@ This file contains functions for searching IP websites
 import urllib.request
 import json
 from ..API.API import Site
-
+from typing import Dict
 
 class Ipinfo(Site):
-    def __init__(self, query):
+    def __init__(self, query:str):
         super().__init__(query)
 
-    def searchSite(self):
+    def searchSite(self) -> dict[str,str]:
         output_dic = {}
         data_file = self.searchIPInfo()
         Info_dict = json.loads(data_file)
@@ -25,21 +25,21 @@ class Ipinfo(Site):
                 output_dic[i] = Info_dict[i]
         return output_dic
 
-    def searchIPInfo(self):
+    def searchIPInfo(self) -> dict[str,str]:
         request_url = urllib.request.urlopen(
             'http://ipinfo.io/' + self.data + '?token=c2b88a2d6f552a')
         return request_url.read()
 
 
 class IpApi(Site):
-    def __init__(self, query):
+    def __init__(self, query:str):
         super().__init__(query)
 
-    def searchIPAPI(self):
+    def searchIPAPI(self) -> dict[str,str]:
         request_url = urllib.request.urlopen('http://ip-api.com/json/' + self.data)
         return request_url.read()
 
-    def searchSite(self):
+    def searchSite(self) -> dict[str,str]:
         output_dic = {}
         data_file = self.searchIPAPI()
         Api_Dict = json.loads(data_file)
@@ -53,7 +53,7 @@ class IpApi(Site):
         return output_dic
 
 
-def searchIp(Ip):
+def searchIp(Ip:str) -> dict[str,str]:
     ip_info = Ipinfo(Ip)
     info_dict = ip_info.searchSite()
     ip_api = IpApi(Ip)

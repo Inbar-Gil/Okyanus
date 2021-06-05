@@ -9,7 +9,7 @@ NO_RESPONSE = 'NONE'
 
 class PhoneNumber441(Site):
 
-    def searchSite(self):
+    def searchSite(self) -> list[str, str] or str:
         """
         searches the relevant Site and gets the response
         :return: the site's response
@@ -27,12 +27,13 @@ class PhoneNumber441(Site):
                 place += 1
 
             # Returns: Name, Address
+            print [infoHtmlList[3], infoHtmlList[4]]
             return [infoHtmlList[3], infoHtmlList[4]]
         except Exception:
             print("No Response\n")
 
 
-def searchPhoneNumber(data):
+def searchPhoneNumber(data:str) -> dict[str,str]:
     """
     This function create dictionary that contains the name and the address of the owner
     :return: dict
@@ -41,3 +42,4 @@ def searchPhoneNumber(data):
     listInfo = p1.searchSite()
     dictInfo = {"Name": listInfo[0], "Address": listInfo[1]}
     return dictInfo
+

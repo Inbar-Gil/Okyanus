@@ -5,15 +5,15 @@ from .EMail import EMail
 from .IPAddress import IP
 from .PhoneNumber import Phone
 from .Username import Username
-
+from typing import Tuple
 
 class RegExAnalyzer:
-    def __init__(self, query):
+    def __init__(self, query:str):
         self.query = query
         self.queryType = ""
         self.data = []
 
-    def getQueryType(self):
+    def getQueryType(self) -> None:
         """
         checks all types to see which type the query is
         sets query type and data accordingly
@@ -41,5 +41,5 @@ class RegExAnalyzer:
         else:
             raise ValueError("This username is illegal")
 
-    def returnData(self):
+    def returnData(self) -> tuple[str,list]:
         return self.queryType, self.data

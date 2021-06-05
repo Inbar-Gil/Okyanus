@@ -11,11 +11,11 @@ END_PREFIX_INTL = 4
 END_PREFIX_HOME_MOBL = 3
 
 
-def isMatchPhoneNumber(query, finalSearchPhoneNumber):
+def isMatchPhoneNumber(query:str, finalSearchPhoneNumber: re.Match) -> bool:
     return finalSearchPhoneNumber != None and finalSearchPhoneNumber.group(0) == query
 
 
-def findPhoneNumberType(phoneNumber):
+def findPhoneNumberType(phoneNumber:str) -> str:
     # *** Get phone number assuming it is OK ***
 
     digitsHomePhoneNumber = [2, 3, 4, 7, 8, 9]
@@ -28,7 +28,7 @@ def findPhoneNumberType(phoneNumber):
 
 
 class Phone(QueryType):
-    def isQueryType(self):
+    def isQueryType(self) -> None:
         """
             Checks if the Phone type Object's query property matches any phone number format.
 
@@ -52,7 +52,7 @@ class Phone(QueryType):
             phoneIntl) or isMatchPhoneNumber(
             self.query, oldPhoneHomeNumber)
 
-    def formatQuery(self):
+    def formatQuery(self) -> None:
         """
 
             Used after function "isQueryType".

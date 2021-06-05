@@ -11,7 +11,7 @@ RE_IPV6 = "(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|(
 
 class IP(QueryType):
 
-    def isQueryType(self):
+    def isQueryType(self) -> None:
         """
             Checks if the IP type Object's query property matches the format of an IPv4/IPv6 Address.
 
@@ -33,7 +33,7 @@ class IP(QueryType):
                 raise ValueError("This IPv6 address is illegal")
             self.state = True
 
-    def formatQuery(self):
+    def formatQuery(self) -> None:
         """
             Used after function "isQueryType".
 

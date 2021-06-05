@@ -3,15 +3,16 @@ This File contains function structures for bot input and output modules
 and naming conventions
 """
 
+from typing import Tuple
 
 class QueryType:
 
-    def __init__(self, query):
+    def __init__(self, query:str):
         self.query = query
         self.state = False
         self.data = []
 
-    def isQueryType(self):
+    def isQueryType(self) -> None:
         """
         Is the query given of data type specified
         :param query: the query given for the search
@@ -20,7 +21,7 @@ class QueryType:
         """
         pass
 
-    def formatQuery(self):
+    def formatQuery(self) -> None:
         """
         After checking the query type, formats it to all relevant data portions
         :param query: the query of known type
@@ -28,7 +29,7 @@ class QueryType:
         """
         pass
 
-    def getQueryData(self):
+    def getQueryData(self) -> tuple[bool, list]:
         self.isQueryType()
         if self.state:
             self.formatQuery()
@@ -36,11 +37,11 @@ class QueryType:
 
 
 class Site:
-    def __init__(self, data):
+    def __init__(self, data:list):
         self.data = data
         self.response = ""
 
-    def searchSite(self):
+    def searchSite(self) -> None:
         """
         searches the relevant Site and gets the response
         :return: the site's response
@@ -79,7 +80,7 @@ class Response:
     Class to use to format answers for use in main
     """
 
-    def __init__(self, query):
+    def __init__(self, query:str) -> None:
         """
         insert headers to init
         """

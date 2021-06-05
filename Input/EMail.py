@@ -4,7 +4,7 @@ from ..API.API import QueryType
 
 class EMail(QueryType):
 
-    def isQueryType(self):
+    def isQueryType(self) -> None:
         """
             Checks if the EMail type Object's query property matches the general format of an email address.
 
@@ -31,7 +31,7 @@ class EMail(QueryType):
                     raise ValueError("This email is not legal")
             self.state = True
 
-    def formatQuery(self):
+    def formatQuery(self) -> None:
         """
             Used after function "isQueryType".
 
