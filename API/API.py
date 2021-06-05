@@ -37,7 +37,7 @@ class QueryType:
 
 
 class Site:
-    def __init__(self, data:list):
+    def __init__(self, data:str):
         self.data = data
         self.response = ""
 

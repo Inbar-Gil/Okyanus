@@ -5,6 +5,7 @@ import urllib.request
 import json
 from ..API.API import Site
 from typing import Dict
+from typing import Union
 
 class Ipinfo(Site):
     def __init__(self, query:str):
@@ -25,7 +26,7 @@ class Ipinfo(Site):
                 output_dic[i] = Info_dict[i]
         return output_dic
 
-    def searchIPInfo(self) -> dict[str,str]:
+    def searchIPInfo(self) -> Union[str,bytes]:
         request_url = urllib.request.urlopen(
             'http://ipinfo.io/' + self.data + '?token=c2b88a2d6f552a')
         return request_url.read()
@@ -35,7 +36,7 @@ class IpApi(Site):
     def __init__(self, query:str):
         super().__init__(query)
 
-    def searchIPAPI(self) -> dict[str,str]:
+    def searchIPAPI(self) -> Union[str,bytes]:
         request_url = urllib.request.urlopen('http://ip-api.com/json/' + self.data)
         return request_url.read()
 
