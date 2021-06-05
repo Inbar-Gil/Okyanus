@@ -27,7 +27,7 @@ class PhoneNumber441(Site):
                 place += 1
 
             # Returns: Name, Address
-            print [infoHtmlList[3], infoHtmlList[4]]
+
             return [infoHtmlList[3], infoHtmlList[4]]
         except Exception:
             print("No Response\n")
