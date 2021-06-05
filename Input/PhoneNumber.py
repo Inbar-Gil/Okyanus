@@ -3,6 +3,7 @@ Contains the functions for analyzing phone numbers
 """
 
 import re
+
 from typing import Match
 from ..API.API import QueryType
 

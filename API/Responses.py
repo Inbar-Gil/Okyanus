@@ -1,6 +1,7 @@
-from .API import Response
 import re
 from typing import Dict
+
+from .API import Response
 
 EMAIL_SITES = []
 IP_SITES = []

@@ -1,5 +1,6 @@
-from ..API.API import QueryType
 import re
+
+from ..API.API import QueryType
 
 
 class Username(QueryType):
