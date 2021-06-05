@@ -29,7 +29,7 @@ class Ipinfo(Site):
 
 class IpApi(Site):
     def searchIPAPI(self) -> Union[str, bytes]:
-        request_url = urllib.request.urlopen(f"http://ip-api.com/json/'{self.data}")
+        request_url = urllib.request.urlopen(f"http://ip-api.com/json/{self.data}")
         return request_url.read()
 
     def searchSite(self) -> Dict[str, str]:
