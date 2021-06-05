@@ -14,7 +14,7 @@ class SearchEngine:
     def __init__(self, queryType:str, data:list or str):
         self.queryType = queryType
         self.data = data
-        self.response = Response("")
+        self.response = {}
 
     def searchType(self):
         """

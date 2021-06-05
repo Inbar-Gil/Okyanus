@@ -7,8 +7,9 @@ from .PhoneNumber import Phone
 from .Username import Username
 from typing import Tuple
 
+
 class RegExAnalyzer:
-    def __init__(self, query:str):
+    def __init__(self, query: str):
         self.query = query
         self.queryType = ""
         self.data = []
@@ -41,5 +42,5 @@ class RegExAnalyzer:
         else:
             raise ValueError("This username is illegal")
 
-    def returnData(self) -> tuple[str,list]:
+    def returnData(self) -> Tuple[str, list]:
         return self.queryType, self.data

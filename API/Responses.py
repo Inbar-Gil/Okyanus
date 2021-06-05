@@ -33,14 +33,14 @@ class NoResponse(Response):
 
 
 class PhoneResponse(Response):
-    def __init__(self, query: str, dictInfo: dict[str, str]):
+    def __init__(self, query: str, dictInfo: Dict[str, str]):
         super().__init__(query)
         self.name = dictInfo["Name"]
         self.address = dictInfo["Address"]
 
 
 class IpResponse(Response):
-    def __init__(self, query: str, info_dict: dict[str, str]):
+    def __init__(self, query: str, info_dict: Dict[str, str]):
         super().__init__(query)
         self.hostname = info_dict["hostname"]
         self.city = info_dict["city"]

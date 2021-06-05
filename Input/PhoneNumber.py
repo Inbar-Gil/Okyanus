@@ -3,6 +3,7 @@ Contains the functions for analyzing phone numbers
 """
 
 import re
+from typing import Match
 from ..API.API import QueryType
 
 PHONE_NUMBER_TYPE = {1: "Intl", 2: "Mobl", 3: "Home"}
@@ -11,11 +12,11 @@ END_PREFIX_INTL = 4
 END_PREFIX_HOME_MOBL = 3
 
 
-def isMatchPhoneNumber(query:str, finalSearchPhoneNumber: re.Match) -> bool:
-    return finalSearchPhoneNumber != None and finalSearchPhoneNumber.group(0) == query
+def isMatchPhoneNumber(query: str, finalSearchPhoneNumber: Match) -> bool:
+    return finalSearchPhoneNumber is not None and finalSearchPhoneNumber.group(0) == query
 
 
-def findPhoneNumberType(phoneNumber:str) -> str:
+def findPhoneNumberType(phoneNumber: str) -> str:
     # *** Get phone number assuming it is OK ***
 
     digitsHomePhoneNumber = [2, 3, 4, 7, 8, 9]
@@ -34,8 +35,8 @@ class Phone(QueryType):
 
             If yes, the Object's state property is changed to True.
 
-            If the query doesn't match any format at all, nothing happens (the Object's state property stays as
-            False, because it was initialized as such).
+            If the query doesn't match any format at all, nothing happens (the Object's state
+            property stays as False, because it was initialized as such).
 
             :return: None
         """
@@ -57,10 +58,11 @@ class Phone(QueryType):
 
             Used after function "isQueryType".
 
-            Checks the Phone type Object's query and decides if its an international/mobile/home phone number type,
-            using secondary function "findPhoneNumberType".
+            Checks the Phone type Object's query and decides if its an international/mobile/home
+            phone number typ using secondary function "findPhoneNumberType".
 
-            Formats the Phone type Object's query property according to its decided type ([PHONE_TYPE, (PREFIXES), DIGITS])
+            Formats the Phone type Object's query property according to its decided type
+            ([PHONE_TYPE, (PREFIXES), DIGITS])
 
             :return: None
 

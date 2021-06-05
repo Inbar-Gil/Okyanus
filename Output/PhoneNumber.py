@@ -3,13 +3,13 @@ This file contains functions for searching phone number websites
 """
 import requests as req
 from ..API.API import Site
+from typing import List, Union, Dict
 
 NO_RESPONSE = 'NONE'
 
 
 class PhoneNumber441(Site):
-
-    def searchSite(self) -> list[str, str] or str:
+    def searchSite(self) -> Union[List[str, str], str]:
         """
         searches the relevant Site and gets the response
         :return: the site's response
@@ -21,7 +21,7 @@ class PhoneNumber441(Site):
                     2])
             infoHtmlList = resp.text.split("<TD>")[1:]
             place = 0
-            for i in infoHtmlList:
+            for _ in infoHtmlList:
                 indexSymbol = infoHtmlList[place].index("<")
                 infoHtmlList[place] = infoHtmlList[place][:indexSymbol]
                 place += 1
@@ -33,7 +33,7 @@ class PhoneNumber441(Site):
             print("No Response\n")
 
 
-def searchPhoneNumber(data:str) -> dict[str,str]:
+def searchPhoneNumber(data: str) -> Dict[str, str]:
     """
     This function create dictionary that contains the name and the address of the owner
     :return: dict
@@ -42,4 +42,3 @@ def searchPhoneNumber(data:str) -> dict[str,str]:
     listInfo = p1.searchSite()
     dictInfo = {"Name": listInfo[0], "Address": listInfo[1]}
     return dictInfo
-
