@@ -10,6 +10,7 @@ from typing import Union
 
 TOKEN = "c2b88a2d6f552a"
 
+
 class Ipinfo(Site):
 
     def searchSite(self) -> Dict[str, str]:
@@ -25,7 +26,7 @@ class Ipinfo(Site):
     def searchIPInfo(self) -> Union[str, bytes]:
         request_url = urllib.request.urlopen(f"http://ipinfo.io/{self.data}?token={TOKEN}")
         return request_url.read()
-        
+
 
 class IpApi(Site):
     def searchIPAPI(self) -> Union[str, bytes]:
@@ -56,6 +57,5 @@ def searchIp(Ip: str) -> Dict[str, str]:
 
 
 if __name__ == '__main__':
-
     x = searchIp("0.0.0.0")
     print(x)

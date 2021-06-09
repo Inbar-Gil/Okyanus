@@ -48,13 +48,9 @@ class Site:
 
 
 class Response:
-    """
-    Class to use to format answers for use in main
-    """
-
     def __init__(self, query: str) -> None:
-        """
-        insert headers to init
-        """
-        self.query = query
-        self.responseType = self.__class__.__name__
+        self.query: str = query
+        self.responseType: str = self.__class__.__name__
+        self.links: list = []
+        self.data: dict = {}
+        self.dataKeys = list(self.data.keys())

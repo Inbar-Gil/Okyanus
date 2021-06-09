@@ -25,7 +25,7 @@ class SearchEngine:
         if self.queryType == "USERNAME":
             self.response = {}
 
-    def generateResponse(self, query:str) -> IpResponse or PhoneResponse or Response:
+    def generateResponse(self, query:str) -> Response:
         """
         uses self.responses to create the relevant response Object type
         :return: the response object
