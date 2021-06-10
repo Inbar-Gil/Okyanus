@@ -6,7 +6,10 @@ from .API import Response
 EMAIL_SITES = []
 IP_SITES = []
 PHONE_SITES = []
-
+USERNAME_SITES = []
+DOMAIN_SITES = []
+INSTAGRAM_STIES = []
+FACEBOOK_SITES = []
 
 class ErrorResponse(Response):
     def __init__(self, query: str, error: Exception):
@@ -36,8 +39,9 @@ class NoResponse(Response):
 class PhoneResponse(Response):
     def __init__(self, query: str, dictInfo: Dict[str, str]):
         super().__init__(query)
-        self.name = dictInfo["Name"]
-        self.address = dictInfo["Address"]
+        self.links = PHONE_SITES
+        self.data = dictInfo
+        self.dataKeys = list(self.data.keys())
 
 
 class IpResponse(Response):
