@@ -3,13 +3,31 @@ from typing import Dict
 
 from .API import Response
 
-EMAIL_SITES = []
-IP_SITES = []
-PHONE_SITES = []
-USERNAME_SITES = []
-DOMAIN_SITES = []
-INSTAGRAM_STIES = []
-FACEBOOK_SITES = []
+IP_SITES = ["https://ipinfo.io/",
+            "https://ipdata.co/?ref=iplocation",
+            "https://censys.io/ipv4",
+            "https://ip-api.com/",
+            "https://www.threatcrowd.org/"]
+EMAIL_SITES = ["https://centralops.net/co/emaildossier.aspx",
+               "https://haveibeenpwned.com/,"
+               "https://tools.epieos.com/email.php"]
+PHONE_SITES = ["https://www.truecaller.com/",
+               "https://synapsint.com/",
+               "https://441il.com/reverse_lookup/phone_number/israel.html",
+               "https://imei24.com/",
+               "https://intelx.io/tools?tab=telephone"]
+USERNAME_SITES = ["https://knowem.com/",
+                  "https://whatsmyname.app/",
+                  "https://www.yooying.com/",
+                  "https://foller.me/"]
+DOMAIN_SITES = ["https://whois.domaintools.com/",
+                "https://crt.sh/?q=",
+                "https://www.similarweb.com/",
+                "https://omail.io/leads/"]
+INSTAGRAM_STIES = ["https://www.yooying.com/",
+                   "https://www.searchmy.bio/",
+                   "https://searchusers.com/",
+                   "https://imginn.com/"]
 
 
 class ErrorResponse(Response):
