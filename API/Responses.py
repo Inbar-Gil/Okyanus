@@ -11,11 +11,13 @@ DOMAIN_SITES = []
 INSTAGRAM_STIES = []
 FACEBOOK_SITES = []
 
+
 class ErrorResponse(Response):
     def __init__(self, query: str, error: Exception):
         super().__init__(query)
-        self.exception = re.split("'", str(error.__class__))[1]
-        self.message = error.__str__()
+        self.data = {"exception": re.split("'", str(error.__class__))[1],
+                     "message": error.__str__()}
+        self.dataKeys = list(self.data.keys())
 
 
 class NoResponse(Response):
