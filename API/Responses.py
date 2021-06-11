@@ -42,7 +42,7 @@ class NoResponse(Response):
     def __init__(self, query: str, queryType: str):
         super().__init__(query)
         self.queryType = queryType
-        self.data = []
+        self.data = {"queryType": queryType}
         self.dataKeys = list(self.data.keys())
         self.setSites()
 
