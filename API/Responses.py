@@ -9,7 +9,7 @@ IP_SITES = ["https://ipinfo.io/",
             "https://ip-api.com/",
             "https://www.threatcrowd.org/"]
 EMAIL_SITES = ["https://centralops.net/co/emaildossier.aspx",
-               "https://haveibeenpwned.com/,"
+               "https://haveibeenpwned.com/",
                "https://tools.epieos.com/email.php"]
 PHONE_SITES = ["https://www.truecaller.com/",
                "https://synapsint.com/",

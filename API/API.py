@@ -1,17 +1,12 @@
-"""
-This File contains function structures for bot input and output modules
-and naming conventions
-"""
-
 from typing import Tuple
 
 
 class QueryType:
 
     def __init__(self, query: str):
-        self.query = query
-        self.state = False
-        self.data = []
+        self.query: str = query
+        self.state: bool = False
+        self.data: Tuple = ()
 
     def isQueryType(self) -> None:
         """
@@ -28,7 +23,7 @@ class QueryType:
         """
         pass
 
-    def getQueryData(self) -> Tuple[bool, list]:
+    def getQueryData(self) -> Tuple[bool, tuple]:
         self.isQueryType()
         if self.state:
             self.formatQuery()
@@ -36,15 +31,16 @@ class QueryType:
 
 
 class Site:
-    def __init__(self, data: str):
-        self.data = data
-        self.response = ""
+    def __init__(self, data: tuple):
+        self.data: tuple = data
+        self.response: dict = {}
 
-    def searchSite(self) -> None:
+    def searchSite(self) -> dict:
         """
         searches the relevant Site and gets the response
         :return: the site's response
         """
+        pass
 
 
 class Response:

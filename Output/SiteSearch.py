@@ -8,7 +8,7 @@ from ..API.Responses import *
 
 
 class SearchEngine:
-    def __init__(self, queryType:str, data:list or str):
+    def __init__(self, queryType: str, data: list or str):
         self.queryType = queryType
         self.data = data
         self.response = {}
@@ -25,7 +25,7 @@ class SearchEngine:
         if self.queryType == "USERNAME":
             self.response = {}
 
-    def generateResponse(self, query:str) -> Response:
+    def generateResponse(self, query: str) -> Response:
         """
         uses self.responses to create the relevant response Object type
         :return: the response object
@@ -36,7 +36,7 @@ class SearchEngine:
                 return IpResponse(query, self.response)
             if self.queryType == "PHONE":
                 return PhoneResponse(query, self.response)
-            if self.queryType == "USERNAME":
-                return Response(query)
+            else:
+                return NoResponse(query, self.queryType)
         except ValueError:
             return NoResponse(query, self.queryType)
