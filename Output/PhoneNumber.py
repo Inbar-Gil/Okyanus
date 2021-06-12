@@ -2,14 +2,15 @@
 This file contains functions for searching phone number websites
 """
 import requests as req
+
 from ..API.API import Site
+from typing import List, Dict
 
 NO_RESPONSE = 'NONE'
 
 
 class PhoneNumber441(Site):
-
-    def searchSite(self):
+    def searchSite(self) -> Dict[str, str]:
         """
         searches the relevant Site and gets the response
         :return: the site's response
@@ -19,7 +20,7 @@ class PhoneNumber441(Site):
             resp = req.get(f"https://441il.com/en/looktra.php?area={self.data[1][0]}&phone={self.data[2]}")
             infoHtmlList = resp.text.split("<TD>")[1:]
             place = 0
-            for i in infoHtmlList:
+            for _ in infoHtmlList:
                 indexSymbol = infoHtmlList[place].index("<")
                 infoHtmlList[place] = infoHtmlList[place][:indexSymbol]
                 place += 1
@@ -30,7 +31,7 @@ class PhoneNumber441(Site):
             raise ValueError
 
 
-def searchPhoneNumber(data):
+def searchPhoneNumber(data: str) -> Dict[str, str]:
     """
     This function create dictionary that contains the name and the address of the owner
     :return: dict

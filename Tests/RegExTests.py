@@ -2,6 +2,7 @@
 This File creates 1000 random strings for Regex separation tests
 """
 import string
+
 import numpy as np
 
 DATA_TYPES = 3
