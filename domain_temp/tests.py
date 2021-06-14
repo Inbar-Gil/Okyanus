@@ -1,6 +1,7 @@
 import requests
 import json
 import whois11
+import re
 
 START_AT = 300
 
@@ -83,6 +84,8 @@ def get_whois(domain):
 
     return edit_result_to_dict(result)
 
+DOMAIN_REGX = r'http[s]?://'
 
 if __name__ == '__main__':
-    print(get_whois("n12.co.il"))
+    # print(get_whois("n12.co.il"))
+    print(re.match(DOMAIN_REGX, "http://www.facebook.com/groups/1461656040797270/user/100005066730592/").group())
