@@ -31,7 +31,7 @@ class PhoneNumber441(Site):
             raise ValueError
 
 
-def searchPhoneNumber(data: str) -> Dict[str, str]:
+def searchPhoneNumber(data: tuple) -> Dict[str, str]:
     """
     This function create dictionary that contains the name and the address of the owner
     :return: dict
@@ -42,5 +42,5 @@ def searchPhoneNumber(data: str) -> Dict[str, str]:
 
 
 if __name__ == '__main__':
-    print(PhoneNumber441(["ed", ("04",), "6272343"]).searchSite())
-    print(searchPhoneNumber(["ed", ("04",), "6272343"]))
+    print(PhoneNumber441(("ed", ("04",), "6272343")).searchSite())
+    print(searchPhoneNumber(("ed", ("04",), "6272343")))
