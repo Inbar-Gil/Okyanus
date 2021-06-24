@@ -12,6 +12,7 @@ from typing import Tuple
 class RegExAnalyzer:
     def __init__(self, query: str):
         self.query = query.replace("\"", "")
+        self.query = self.query.replace("~", "/")
         self.queryType = ""
         self.data = []
 
